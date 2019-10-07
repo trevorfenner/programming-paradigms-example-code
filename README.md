@@ -6,7 +6,7 @@ You should "`pull`" this repository **often**, at least once a week.
 
 * go
 * prolog
-* racket
+* [racket](https://racket-lang.org/)
 * scala
 
 ### Non-examinable
