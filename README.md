@@ -2,9 +2,6 @@
 
 You should "`pull`" this repository **often**, at least once a week.
 
-## Sample languages
-
-
 ### Examinable
 
 * go
@@ -20,8 +17,8 @@ You should "`pull`" this repository **often**, at least once a week.
 * haskell
 * java
 * kotlin
-* rust 
+* rust
 
 ## Consolidation
 
-* Revision
+* revision
