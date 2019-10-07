@@ -4,17 +4,23 @@ You should "`pull`" this repository **often**, at least once a week.
 
 ## Sample languages
 
-* elm (not examinable)
-* erlang (not examinable)
+
+### Examinable
+
 * go
-* groovy (not examinable)
-* haskell (not examinable)
-* java (not examinable)
-* kotlin (not examinable)
 * prolog
 * racket
-* rust
-* scala 
+* scala
+
+### Non-examinable
+
+* elm
+* erlang
+* groovy
+* haskell
+* java
+* kotlin
+* rust 
 
 ## Consolidation
 
