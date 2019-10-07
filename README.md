@@ -4,7 +4,7 @@ You should "`pull`" this repository **often**, at least once a week.
 
 ### Examinable
 
-* Go
+* [Go](https://golang.org/)
 * Prolog
 * [Racket](https://racket-lang.org/)
 * Scala
@@ -21,6 +21,7 @@ You should "`pull`" this repository **often**, at least once a week.
 * Java
 * [Kotlin](https://kotlinlang.org/)
 * Rust
+* Smalltalk
 * [TypeScript](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
 
 ## Consolidation
