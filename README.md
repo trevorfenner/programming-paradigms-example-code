@@ -4,20 +4,24 @@ You should "`pull`" this repository **often**, at least once a week.
 
 ### Examinable
 
-* go
-* prolog
-* [racket](https://racket-lang.org/)
-* scala
+* Go
+* Prolog
+* [Racket](https://racket-lang.org/)
+* Scala
 
 ### Non-examinable
 
-* elm
-* erlang
-* groovy
-* haskell
-* java
-* kotlin
-* rust
+* [Ciao](http://ciao-lang.org/) - constraint based logic programming language
+* Clojure
+* Dart
+* Elm
+* Erlang
+* Groovy
+* Haskell
+* Java
+* [Kotlin](https://kotlinlang.org/)
+* Rust
+* [TypeScript](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
 
 ## Consolidation
 
