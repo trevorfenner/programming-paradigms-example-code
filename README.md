@@ -1,29 +1,33 @@
 # Programming Paradigms Code Examples for 2019-20
 
-You should "`pull`" this repository **often**, at least once a week.
+You should "`pull`" this repository **often**; at least once a week.
 
 ### Examinable
 
-* [Go](https://golang.org/)
-* Prolog
-* [Racket](https://racket-lang.org/)
-* Scala
+* [`Go`](https://golang.org/)
+* `Prolog`
+* [`Racket`](https://racket-lang.org/)
+* `Scala`
 
 ### Non-examinable
 
-* [Ciao](http://ciao-lang.org/) - constraint based logic programming language
-* Clojure
-* Dart
-* Elm
-* Erlang
-* Groovy
-* Haskell
-* Java
-* [Kotlin](https://kotlinlang.org/)
-* Rust
-* Smalltalk
-* [TypeScript](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
+* [`Ciao`](http://ciao-lang.org/) - constraint based logic programming language
+* `Clojure`
+* `Dart`
+* `Elm`
+* `Erlang`
+* `Groovy`
+* `Haskell`
+* `Java`
+* [`Kotlin`](https://kotlinlang.org/)
+* `Rust`
+* `Smalltalk`
+* [`TypeScript`](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
+
+### Coursework related
+
++ `example_C--_code`
 
 ## Consolidation
 
-* revision
+* `revision`
