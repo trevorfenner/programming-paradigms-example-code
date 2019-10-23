@@ -4,26 +4,17 @@
 
 const evaluate = function (parseTree) {
     let operators = {
-        "+": function (a, b) {
-            return a + b;
-        },
-        "-": function (a, b) {
-            if (typeof b === "undefined") return -a;
-            return a - b;
-        },
-        "*": function (a, b) {
-            return a * b;
-        },
-        "/": function (a, b) {
-            return a / b;
-        },
-        "%": function (a, b) {
-            return a % b;
-        },
-        "^": function (a, b) {
-            return Math.pow(a, b);
+            "+": (a, b) => a + b,
+            "-": function (a, b) {
+                if (typeof b === "undefined") return -a;
+                return a - b;
+            },
+            "*": (a, b) => a * b,
+            "/": (a, b) => a / b,
+            "%": (a, b) => a % b,
+            "^": (a, b) => Math.pow(a, b)
         }
-    };
+    ;
 
     let variables = {
         pi: Math.PI,
@@ -52,31 +43,38 @@ const evaluate = function (parseTree) {
     let args = {};
 
     const parseNode = function (node) {
-        if (node.type === "number") return node.value;
-        else if (operators[node.type]) {
-            if (node.left) return operators[node.type](parseNode(node.left), parseNode(node.right));
-            return operators[node.type](parseNode(node.right));
-        } else if (node.type === "identifier") {
-            let value = args.hasOwnProperty(node.value) ? args[node.value] : variables[node.value];
-            if (typeof value === "undefined") throw node.value + " is undefined";
-            return value;
-        } else if (node.type === "assign") {
-            variables[node.name] = parseNode(node.value);
-        } else if (node.type === "call") {
-            for (let i = 0; i < node.args.length; i++) node.args[i] = parseNode(node.args[i]);
-            return functions[node.name].apply(null, node.args);
-        } else if (node.type === "function") {
-            functions[node.name] = function () {
-                for (let i = 0; i < node.args.length; i++) {
-                    args[node.args[i].value] = arguments[i];
-                }
+        switch (node.type) {
+            case "number":
+                return node.value;
+            case "identifier":
+                let value = args.hasOwnProperty(node.value) ? args[node.value] : variables[node.value];
+                if (typeof value === "undefined") throw node.value + " is undefined";
+                return value;
+            case "assign":
+                variables[node.name] = parseNode(node.value);
+                break;
+            case "call":
+                for (let i = 0; i < node.args.length; i++) node.args[i] = parseNode(node.args[i]);
+                return functions[node.name].apply(null, node.args);
+            case "function":
+                functions[node.name] = function () {
+                    for (let i = 0; i < node.args.length; i++) {
+                        args[node.args[i].value] = arguments[i];
+                    }
 
-                let ret = parseNode(node.value);
-                args = {};
-                return ret;
-            };
+                    let ret = parseNode(node.value);
+                    args = {};
+                    return ret;
+                };
+                break;
+            default:
+                if (operators[node.type]) {
+                    if (node.left) return operators[node.type](parseNode(node.left), parseNode(node.right));
+                    return operators[node.type](parseNode(node.right));
+                } else
+                    throw "Illegal type";
         }
-    };
+    }
 
     let output = "";
     let item;
@@ -86,6 +84,6 @@ const evaluate = function (parseTree) {
             output += value + "\n";
     }
     return output;
-};
+}
 
 exports.evaluate = evaluate;
