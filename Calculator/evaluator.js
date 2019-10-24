@@ -2,26 +2,22 @@
 
 // "Walk" the parse tree to evaluate the expression
 
-const evaluate = function (parseTree) {
+const evaluate = (parseTree) => {
     let operators = {
-            "+": (a, b) => a + b,
-            "-": function (a, b) {
-                if (typeof b === "undefined") return -a;
-                return a - b;
-            },
-            "*": (a, b) => a * b,
-            "/": (a, b) => a / b,
-            "%": (a, b) => a % b,
-            "^": (a, b) => Math.pow(a, b)
-        }
-    ;
+        "+": (a, b) => a + b,
+        "-": (a, b) => (typeof b === "undefined") ? -a : a - b,
+        "*": (a, b) => a * b,
+        "/": (a, b) => a / b,
+        "%": (a, b) => a % b,
+        "^": (a, b) => Math.pow(a, b)
+    }
 
-    let variables = {
+    let constants = {
         pi: Math.PI,
         e: Math.E
-    };
+    }
 
-    const functions = {
+    const functions = { // straight translation to the inbuilt functions
         sin: Math.sin,
         cos: Math.cos,
         tan: Math.cos,
@@ -42,22 +38,26 @@ const evaluate = function (parseTree) {
 
     let args = {};
 
-    const parseNode = function (node) {
+    const parseNode = (node) => {
         switch (node.type) {
             case "number":
                 return node.value;
             case "identifier":
-                let value = args.hasOwnProperty(node.value) ? args[node.value] : variables[node.value];
-                if (typeof value === "undefined") throw node.value + " is undefined";
+                let value = args.hasOwnProperty(node.value) ? args[node.value] : constants[node.value];
+                if (typeof value === "undefined") {
+                    throw node.value + " is undefined";
+                }
                 return value;
             case "assign":
-                variables[node.name] = parseNode(node.value);
+                constants[node.name] = parseNode(node.value);
                 break;
             case "call":
-                for (let i = 0; i < node.args.length; i++) node.args[i] = parseNode(node.args[i]);
-                return functions[node.name].apply(null, node.args);
+                for (let i = 0; i < node.args.length; i++) {
+                    node.args[i] = parseNode(node.args[i]);
+                }
+                return functions[node.name].apply(null, node.args); // run the function with these arguments
             case "function":
-                functions[node.name] = function () {
+                functions[node.name] = () => {
                     for (let i = 0; i < node.args.length; i++) {
                         args[node.args[i].value] = arguments[i];
                     }
@@ -69,10 +69,14 @@ const evaluate = function (parseTree) {
                 break;
             default:
                 if (operators[node.type]) {
-                    if (node.left) return operators[node.type](parseNode(node.left), parseNode(node.right));
-                    return operators[node.type](parseNode(node.right));
-                } else
+                    if (node.left) {
+                        return operators[node.type](parseNode(node.left), parseNode(node.right));
+                    } else {
+                        return operators[node.type](parseNode(node.right));
+                    }
+                } else {
                     throw "Illegal type";
+                }
         }
     }
 

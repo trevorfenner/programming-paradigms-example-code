@@ -16,11 +16,11 @@
 // 4. Identifiers and numbers also have a "ndf" function associated with them.
 
 
-const parse = function (tokens) {
+const parse = (tokens) => {
     let symbols = {}; // need a symbol table so that we don't record things twice.
     let index = 0; // A count of where we are on the incoming token stream
 
-    const symbol = function (id, ndf, lbp, ldf) {
+    const symbol = (id, ndf, lbp, ldf) => {
         let sym = symbols[id] || {}; // idiomatic JS
         symbols[id] = {
             lbp: sym.lbp || lbp,    // old style for assigning default values
@@ -43,7 +43,7 @@ const parse = function (tokens) {
         token();
     };
 
-    const expression = function (rbp) {
+    const expression = (rbp) => {
         let left, t = token();
         advance();
         if (!t.ndf) {
@@ -61,7 +61,7 @@ const parse = function (tokens) {
         return left;
     };
 
-    const infix = function (id, lbp, rbp, ldf) {
+    const infix = (id, lbp, rbp, ldf) => {
         rbp = rbp || lbp; // idiomatic JS
         symbol(id, null, lbp, ldf || function (left) {
             return {
@@ -71,7 +71,7 @@ const parse = function (tokens) {
             };
         });
     };
-    const prefix = function (id, rbp) {
+    const prefix = (id, rbp) => {
         symbol(id, function () {
             return {
                 type: id,
@@ -106,7 +106,9 @@ const parse = function (tokens) {
                     throw "Expected closing parenthesis ')'";
                 }
             }
+
             advance();
+
             return {
                 type: "call",
                 args: args,
@@ -148,21 +150,19 @@ const parse = function (tokens) {
                     args: left.args,
                     value: expression(2)
                 };
-                break;
             case "identifier":
                 return {
                     type: "assign",
                     name: left.value,
                     value: expression(2)
                 };
-                break;
             default:
                 throw "Invalid lvalue";
         }
     });
 
     // the main execution sequence
-    
+
     let parseTree = [];
     // console.log(symbols); // If you wish to see what the initial symbol table look like uncomment this line
     while (token().type !== "(end)") { // operator precedence parser rather than recursive descent

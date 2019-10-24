@@ -4,7 +4,7 @@
 
 // Horrible code but is of a "old JS" style.
 
-const lex = function (input) { // used some lambdas, even though this is not idiomatic (old style JS)
+const lex = (input) => { // used some lambdas, even though this is not idiomatic (old style JS)
     const isOperator = (c) => /[+\-*\/\^%=(),]/.test(c);
     const isDigit = (c) => /[0-9]/.test(c);
     const isWhiteSpace = (c) => /\s/.test(c);
@@ -16,7 +16,7 @@ const lex = function (input) { // used some lambdas, even though this is not idi
 
     const advance = () => ch = input[++index]; // procedure rather than function!
 
-    const addToken = (type, value) =>
+    const addToken = (type, value) => // add an object
         tokens.push({
             type: type,
             value: value
