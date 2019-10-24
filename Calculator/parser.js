@@ -5,8 +5,8 @@
 // The parser accepts the tokens that the lexer produced, and returns a parse tree.
 
 const parse = function (tokens) {
-    let symbols = {};
-    let index = 0;
+    let symbols = {}; // need a symbol table so that we don't record things twice.
+    let index = 0; // A count of where we are on the incoming token stream
 
     const symbol = function (id, nud, lbp, led) {
         let sym = symbols[id] || {}; // idiomatic JS
@@ -68,6 +68,9 @@ const parse = function (tokens) {
         });
     };
 
+    // body of the function
+    // idiomatic JS is nesting lots of functions to reduce exposing them and
+    // cluttering the namespace
 
     symbol(",");
     symbol(")");
@@ -143,7 +146,7 @@ const parse = function (tokens) {
     });
 
     let parseTree = [];
-    while (token().type !== "(end)") {
+    while (token().type !== "(end)") { // operator precedence parser rather than recursive descent
         parseTree.push(expression(0));
     }
     return parseTree;

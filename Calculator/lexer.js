@@ -1,8 +1,10 @@
-"use strict";
+"use strict"; // so that it does some checking on the variables and naming
 
 // Old style "idiomatic" JS except for the lambda expressions which shorten the code considerably.
 
-const lex = function (input) {
+// Horrible code but is of a "old JS" style.
+
+const lex = function (input) { // used some lambdas, even though this is not idiomatic (old style JS)
     const isOperator = (c) => /[+\-*\/\^%=(),]/.test(c);
     const isDigit = (c) => /[0-9]/.test(c);
     const isWhiteSpace = (c) => /\s/.test(c);
@@ -58,4 +60,4 @@ const lex = function (input) {
     return tokens;
 };
 
-exports.lex = lex;
+exports.lex = lex;  // so that we can "include" the code elsewhere

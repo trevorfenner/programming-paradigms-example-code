@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calculator</title>
+    <title>Calculator - Example</title>
 </head>
 <body>
 Enter Calculations:<br>
@@ -25,36 +25,40 @@ cylinderVolume(2, 4)
 </textarea>
 <br>
 <button id="calculate">Calculate</button>
+<hr/>
 <pre id="output"></pre>
+<hr/>
 <script>
-	if (!Object.create) {
-		Object.create = function (o) {
-			function F() { }
-			F.prototype = o;
-			return new F();
-		};
-	}
+    if (!Object.create) {
+        Object.create = function (o) {
+            function F() {
+            }
+
+            F.prototype = o;
+            return new F();
+        };
+    }
 </script>
 <script src="lexer.js"></script>
 <script src="parser.js"></script>
 <script src="evaluator.js"></script>
 <script>
-	var calculate = function (input) {
-		try {
-			var tokens = lex(input);
-			var parseTree = parse(tokens);
-			var output = evaluate(parseTree);
-			return output;
-		} catch (e) {
-			return e;
-		}
-	};
+    var calculate = function (input) {
+        try {
+            var tokens = lex(input);
+            var parseTree = parse(tokens);
+            var output = evaluate(parseTree);
+            return output;
+        } catch (e) {
+            return e;
+        }
+    };
 
-	document.getElementById("calculate").onclick = function () {
-		var input = document.getElementById("input").value;
-		output = calculate(input);
-		document.getElementById("output").innerHTML = output;
-	};
+    document.getElementById("calculate").onclick = function () {
+        var input = document.getElementById("input").value;
+        output = calculate(input);
+        document.getElementById("output").innerHTML = output;
+    };
 </script>
 </body>
 </html>
