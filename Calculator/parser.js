@@ -1,30 +1,42 @@
 "use strict";
 
 // idiomatic JS = old style!
+// Based on a code example by Peter Olson.
 
 // The parser accepts the tokens that the lexer produced, and returns a parse tree.
+// The approach taken is known as "operator-precedence parsing".
+// This process has the following steps:
+//
+// 1. Associate every operational token with a "left binding power" (lbp),
+//    and an operational function.
+// 2. If the operator manipulates tokens to its left (such as "+"),
+//    associate it with a "left denotative function" (ldf).
+// 3. If the operator does not manipulate the tokens on its left (such as the unary "-"),
+//    associate it with a "null denotative function" (ndf).
+// 4. Identifiers and numbers also have a "ndf" function associated with them.
+
 
 const parse = function (tokens) {
     let symbols = {}; // need a symbol table so that we don't record things twice.
     let index = 0; // A count of where we are on the incoming token stream
 
-    const symbol = function (id, nud, lbp, led) {
+    const symbol = function (id, ndf, lbp, ldf) {
         let sym = symbols[id] || {}; // idiomatic JS
         symbols[id] = {
-            lbp: sym.lbp || lbp,
-            nud: sym.nud || nud,
-            led: sym.led || led
+            lbp: sym.lbp || lbp,    // old style for assigning default values
+            ndf: sym.ndf || ndf,
+            ldf: sym.ldf || ldf
         };
     };
 
-    const interpretToken = function (token) {
-        let sym = Object.create(symbols[token.type]);
-        sym.type = token.type;
-        sym.value = token.value;
+    const token = () => {
+        // Take the token and turn it into a symbol
+        let tok = tokens[index];
+        let sym = Object.create(symbols[tok.type]); // prototype creation based on the content of symbols
+        sym.type = tok.type;
+        sym.value = tok.value;
         return sym;
     };
-
-    const token = () => interpretToken(tokens[index]);
 
     const advance = () => {
         index++;
@@ -34,24 +46,24 @@ const parse = function (tokens) {
     const expression = function (rbp) {
         let left, t = token();
         advance();
-        if (!t.nud) {
+        if (!t.ndf) {
             throw "Unexpected token: " + t.type;
         }
-        left = t.nud(t);
+        left = t.ndf(t);
         while (rbp < token().lbp) {
             t = token();
             advance();
-            if (!t.led) {
+            if (!t.ldf) {
                 throw "Unexpected token: " + t.type;
             }
-            left = t.led(left);
+            left = t.ldf(left);
         }
         return left;
     };
 
-    const infix = function (id, lbp, rbp, led) {
+    const infix = function (id, lbp, rbp, ldf) {
         rbp = rbp || lbp; // idiomatic JS
-        symbol(id, null, lbp, led || function (left) {
+        symbol(id, null, lbp, ldf || function (left) {
             return {
                 type: id,
                 left: left,
@@ -69,8 +81,10 @@ const parse = function (tokens) {
     };
 
     // body of the function
-    // idiomatic JS is nesting lots of functions to reduce exposing them and
-    // cluttering the namespace
+
+    // idiomatic JS uses nesting of functions to reduce exposing them and cluttering the namespace
+
+    // load up the initial symbol table
 
     symbol(",");
     symbol(")");
@@ -111,6 +125,8 @@ const parse = function (tokens) {
         return value;
     });
 
+    // operator precedence for some of the operators
+
     prefix("-", 7);
     infix("^", 6, 5);
     infix("*", 4);
@@ -145,7 +161,10 @@ const parse = function (tokens) {
         }
     });
 
+    // the main execution sequence
+    
     let parseTree = [];
+    // console.log(symbols); // If you wish to see what the initial symbol table look like uncomment this line
     while (token().type !== "(end)") { // operator precedence parser rather than recursive descent
         parseTree.push(expression(0));
     }

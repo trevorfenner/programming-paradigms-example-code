@@ -5,7 +5,7 @@ const parser = require("./parser")
 const evaluator = require("./evaluator")
 
 //const str = "(12 + 4) / 6"; // Test string
-const str = "2++4";
+const str = "2+4";
 
 // let tokens = lex.lex(str);
 // console.log(tokens);
