@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2dee2a96-9d46-4a13-81f9-430b271e6c46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calculator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/evaluator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Calculator.html">
+  <component name="RunManager" selected="Node.js.main.js">
     <configuration name="Calculator.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Calculator/Calculator.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -57,7 +55,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571822544045</updated>
-      <workItem from="1571822545283" duration="8332000" />
+      <workItem from="1571822545283" duration="9517000" />
+      <workItem from="1571849943875" duration="3494000" />
+      <workItem from="1571904028744" duration="4877000" />
     </task>
     <servers />
   </component>
@@ -68,22 +68,22 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1379" height="271" key="GridCell.Tab.0.bottom" timestamp="1571845894160">
+    <state width="1379" height="270" key="GridCell.Tab.0.bottom" timestamp="1571938582926">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1379" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1571845894160" />
-    <state width="1379" height="271" key="GridCell.Tab.0.center" timestamp="1571845894159">
+    <state width="1379" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1571938582926" />
+    <state width="1379" height="270" key="GridCell.Tab.0.center" timestamp="1571938582925">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1379" height="271" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1571845894159" />
-    <state width="1379" height="271" key="GridCell.Tab.0.left" timestamp="1571845894159">
+    <state width="1379" height="270" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1571938582925" />
+    <state width="1379" height="270" key="GridCell.Tab.0.left" timestamp="1571938582924">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1379" height="271" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1571845894159" />
-    <state width="1379" height="271" key="GridCell.Tab.0.right" timestamp="1571845894159">
+    <state width="1379" height="270" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1571938582924" />
+    <state width="1379" height="270" key="GridCell.Tab.0.right" timestamp="1571938582925">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1379" height="271" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1571845894159" />
+    <state width="1379" height="270" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1571938582925" />
     <state x="511" y="347" width="670" height="676" key="search.everywhere.popup" timestamp="1571838425454">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
