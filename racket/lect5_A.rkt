@@ -28,7 +28,7 @@
 (define (len x)
   (accum (lambda (x y) (+ 1 y)) '() x))
 
-define (flatten x)
+(define (flatten x)
   (if (null? x)
       '()
     (append (car x) (flatten (cdr x)))))
