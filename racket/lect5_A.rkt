@@ -1,21 +1,4 @@
 #lang racket
-(define (reverse x)
-  (if (null? x)
-      '()
-      (append (reverse (cdr x)) (cons (car x) '()))))
-
-(define (reverse2 x res)
-  (if (null? x)
-      res
-      (reverse2 (cdr x) (cons (car x) res))))
-
-(define (newrev x)
-  (reverse2 x '()))
-
-(define (dreverse x)
-  (cond ((null? x) '())
-        ((not (pair? x)) x)
-        (else (append (dreverse (cdr x)) (list (dreverse(car x)))))))
 
 (define (accum op init seq)
   (if (null? seq)
