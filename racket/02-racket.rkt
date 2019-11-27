@@ -42,7 +42,7 @@
 (define (deep-reverse list)
   (cond ((null? list) empty)
         ((not (pair? list)) list)
-        (else (append (deep-reverse (cdr list)) (cons (deep-reverse (car list) empty))))))
+        (else (append (deep-reverse (cdr list)) (cons (deep-reverse (car list)) empty)))))
 
 (define (deep-reverse-2 lst)
   (cond ((null? lst) empty)
