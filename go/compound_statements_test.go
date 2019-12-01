@@ -6,12 +6,11 @@ func Example() {
 
 	capitals := map[string]string{
 		"NSW": "Sydney",
-		"VIC":
-		"Melbourne",
+		"VIC": "Melbourne",
 		"TAS": "Hobart",
-		"WA": "Perth",
+		"WA":  "Perth",
 		"QLD": "Brisbane",
-		"SA": "Adelaide",
+		"SA":  "Adelaide",
 	}
 
 	for _, state := range [2]string{"NSW", "AL"} {

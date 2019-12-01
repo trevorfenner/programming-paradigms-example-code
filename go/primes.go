@@ -33,7 +33,7 @@ func main() {
 func keepIfPrime(wg *sync.WaitGroup, candidate int, primes chan int) {
 	defer wg.Done()
 	for divisor := 2; divisor*divisor <= candidate; divisor++ {
-		if candidate % divisor == 0 {
+		if candidate%divisor == 0 {
 			return
 		}
 	}

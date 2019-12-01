@@ -8,7 +8,7 @@ func g() {
 	fmt.Println("This message will not be displayed")
 }
 
-func f () {
+func f() {
 	defer func() {
 		fmt.Println("Cleaning up f")
 		if r := recover(); r != nil {

@@ -1,11 +1,11 @@
 package main
 
 import (
-    "fmt"
-    "runtime"
+	"fmt"
+	"runtime"
 )
 
 func main() {
-    fmt.Printf("NumCPU=%d\n", runtime.NumCPU())
-    fmt.Printf("GOMAXPROCS=%d\n", runtime.GOMAXPROCS(0))
+	fmt.Printf("NumCPU=%d\n", runtime.NumCPU())
+	fmt.Printf("GOMAXPROCS=%d\n", runtime.GOMAXPROCS(0))
 }
