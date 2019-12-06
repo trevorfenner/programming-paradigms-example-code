@@ -25,14 +25,13 @@ func main() {
 	// How to iterate through an array (Use _ if a value isn't used)
 
 	for i, value := range favNums3 {
-
 		fmt.Println(value, i)
-
 	}
 
 	// Slices are like arrays but you leave out the size
 
 	numSlice := []int{5, 4, 3, 2, 1}
+	fmt.Println("numSlice =", numSlice)
 
 	// You can create a slice by defining the first index value to
 	// take through the last
@@ -52,8 +51,11 @@ func main() {
 	// length (receive value of 0), capacity (max size)
 
 	numSlice3 := make([]int, 5, 10)
+	fmt.Println("numSlice3 =", numSlice3)
 
 	// You can copy a slice to another
+	fmt.Println("numSlice =", numSlice, len(numSlice), cap(numSlice))
+	fmt.Println("numSlice3 =", numSlice3, len(numSlice3), cap(numSlice3))
 
 	copy(numSlice3, numSlice)
 
@@ -63,6 +65,6 @@ func main() {
 
 	numSlice3 = append(numSlice3, 0, -1)
 
-	fmt.Println(numSlice3[6])
+	fmt.Println(numSlice3, len(numSlice3), cap(numSlice3))
 
 }

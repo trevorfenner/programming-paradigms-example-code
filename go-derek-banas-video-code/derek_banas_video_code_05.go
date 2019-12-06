@@ -21,10 +21,10 @@ func main() {
 
 	presAge["John F. Kennedy"] = 43
 	fmt.Println(len(presAge))
+	fmt.Println(presAge)
 
 	// We can delete by passing the key to delete
 
 	delete(presAge, "John F. Kennedy")
 	fmt.Println(len(presAge))
-
 }

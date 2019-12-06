@@ -6,6 +6,7 @@ func main() {
 
 	listOfNums := []float64{1, 2, 3, 4, 5}
 
+	fmt.Printf("Type of listOfNums = %T\n", listOfNums)
 	fmt.Println("Sum :", addThemUp(listOfNums))
 
 	// Get 2 values from a function

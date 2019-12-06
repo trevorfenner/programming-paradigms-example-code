@@ -1,10 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func generateMessages(ch chan string, n int) {
 	for i := 0; i < n; i++ {
-		ch <- "Hello"
+		ch <- fmt.Sprintf("Hello: %3d", i)
 	}
 	close(ch)
 }

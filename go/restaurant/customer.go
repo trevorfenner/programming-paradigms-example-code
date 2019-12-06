@@ -12,11 +12,11 @@ func Customer(name string, wg *sync.WaitGroup) {
 		select {
 		case Orders <- &Order{food: "soup", customer: name, reply: ch}:
 			meal := <-ch
-			do(name, "eating " + meal.food + " prepeared by " +
-				meal.preparedBy, 10E9)
+			do(name, "eating "+meal.food+" prepeared by "+
+				meal.preparedBy, 10e9)
 			mealsEaten += 1
 		case <-time.After(time.Second * 7):
-			do(name, "waiting too long, going shopping", 5E9)
+			do(name, "waiting too long, going shopping", 5e9)
 		}
 	}
 	report(name, "going home")
