@@ -1,6 +1,0 @@
-[submodule "js-examples"]
-	path = js-examples
-	url = https://github.com/mdn/js-examples.git
-[submodule "groovy/banas"]
-	path = groovy/banas
-	url = https://github.com/BBK-DCSIS-Programming-Paradigms-2018-19/banas-groovy-code.git
