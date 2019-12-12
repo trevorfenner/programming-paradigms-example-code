@@ -1,3 +1,4 @@
+;;;lect5_A.rkt
 #lang racket
 
 (define (accum op init seq)
