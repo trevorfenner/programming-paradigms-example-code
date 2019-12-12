@@ -10,7 +10,7 @@
   (accum cons list2 list1))
 
 (define (len x)
-  (accum (lambda (x y) (+ 1 y)) '() x))
+  (accum (lambda (x y) (+ 1 y)) 0 x))
 
 (define (flatten x)
   (if (null? x)
