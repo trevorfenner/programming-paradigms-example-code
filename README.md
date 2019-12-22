@@ -26,7 +26,7 @@ You should "`pull`" this repository **often**; at least once a week.
 
 ### Coursework related
 
-+ `example_C--_code`
++ `Coursework`
 
 ## Consolidation
 
