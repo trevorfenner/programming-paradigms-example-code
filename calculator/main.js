@@ -25,14 +25,14 @@ toDegrees(2 * pi)
 cylinderVolume(r, h) = pi * r ^ 2 * h
 cylinderVolume(2, 4)`
 
-// let tokens = lex.lex(str);
-// console.log(tokens);
+let tokens = lex.lex(str);
+console.log(tokens);
 
-// let tree = parser.parse(tokens)
-// console.log(tree);
+let tree = parser.parse(tokens)
+console.log(tree);
 
-// let output = evaluator.evaluate(tree);
-// console.log(output);
+let output = evaluator.evaluate(tree);
+console.log(output);
 
 const calculate = function (input) {
     try {
@@ -47,4 +47,4 @@ const calculate = function (input) {
     }
 };
 
-console.log(calculate(str));
+//console.log(calculate(str));
