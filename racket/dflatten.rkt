@@ -1,5 +1,5 @@
 #lang racket
-
+;;also in 02
 (define (dflatten x)
   (cond [(null? x)'()]
         [(not (pair? x)) (list x)]
