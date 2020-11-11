@@ -1,4 +1,4 @@
-;;;lect5_A.rkt
+;;;lect5_A.rkt   also in 02 except ac-map, ac-filter, ac-flatten
 #lang racket
 
 (define (accum op init seq)
