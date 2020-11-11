@@ -11,6 +11,9 @@
 
 (define (add-n-to-list alist n)
   (map (lambda (x) (+ n x)) alist))
+  
+ (define (between low high numlist)
+  (filter (lambda (n) (and (> n low) (< n high))) numlist))
 
 ;;Note that in the add-n-to-list function, the body of the lambda function
 ;; can refer to the variable n, which is in the lexical scope of the lambda
@@ -86,10 +89,10 @@
 
 (define (flatten-branch branch)
   (if (pair? branch) 
-      (flatten branch)
+      (dflatten branch)
       (list branch)))
 
-(define (flatten tree)
+(define (dflatten tree)
   (accumulate append 
               empty 
               (map flatten-branch tree)))
