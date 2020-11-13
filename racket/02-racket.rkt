@@ -42,31 +42,25 @@
   (if (null? list) empty
       (append (reverse (cdr list)) (cons (car list) empty))))
 
-(define (deep-reverse list)
-  (cond ((null? list) empty)
-        ((not (pair? list)) list)
-        (else (append (deep-reverse (cdr list)) (cons (deep-reverse (car list)) empty)))))
-
-(define (deep-reverse-2 lst)
-  (cond ((null? lst) empty)
-        ((not (pair? lst)) lst)
-        (else (append (deep-reverse-2 (cdr lst)) (list (deep-reverse-2 (car lst)))))))
+(define (deep-reverse lst)
+  (cond [(null? lst) empty]
+        [(not (pair? lst)) lst]
+        [else (append (deep-reverse (cdr lst)) (list (deep-reverse (car lst))))]))
         
 (define (flatten x)
   (if (null? x)
       '()
     (append (car x) (flatten (cdr x)))))
         
-(define (dflatten x)
+(define (deepflatten x)
   (cond [(null? x)'()]
         [(not (pair? x)) (list x)]
-        [else
-         (append (dflatten (car x))
-                 (dflatten (cdr x)))]))
+        [else (append (deepflatten (car x)) (deepflatten (cdr x)))]))
 
-(dflatten '(((((1 3)6)8)9)(a 10 b)))
-(dflatten '((a b) (c d)))
+(deepflatten '(((((1 3)6)8)9)(a 10 b)))
+(deepflatten '((a b) (c d)))
 
+(define (count-leaves tree) (length (deepflatten tree)))
 
 (define (accumulate op initial sequence)
   (if (null? sequence)
