@@ -55,7 +55,8 @@
 (define (deepflatten x)
   (cond [(null? x)'()]
         [(not (pair? x)) (list x)]
-        [else (append (deepflatten (car x)) (deepflatten (cdr x)))]))
+        [else (append (deepflatten (car x)) 
+                      (deepflatten (cdr x)))]))
 
 (deepflatten '(((((1 3)6)8)9)(a 10 b)))
 (deepflatten '((a b) (c d)))
