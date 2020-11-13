@@ -5,12 +5,21 @@
       '()
       (append (reverse (cdr x)) (list  (car x)))))
 
-(define (reverse2 x res)
+(define (reverseTR x)  (rev x '()))
+
+(define (rev-help x res)
   (if (null? x)
       res
-      (reverse2 (cdr x) (cons (car x) res))))
+      (rev-help (cdr x) (cons (car x) res))))
 
-(define (newrev x)  (reverse2 x '()))
+(define (revnums n)      ;the same as (range n 0 -1)
+  (if (= n 0)
+      '()
+      (cons n (revnums (- n 1)))))
+
+;the following calls show the advantage of using tail recursion
+;(length (reverseTR (revnums 30000)))
+;(length (reverse (revnums 30000)))
 
 (define (dreverse x)
   (cond ((null? x) '())
@@ -20,5 +29,5 @@
 
 ;(reverse '(a b c d e f))
 ;(reverse '(a b (c d) e f))
-(newrev '(a b (c d) e f))
-(dreverse '(a b (c d) e f))
+;(reverseTR '(a b (c d) e f))
+;(dreverse '(a b (c d) e f))
