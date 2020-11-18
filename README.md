@@ -29,11 +29,3 @@ We may discuss aspects of some of the following languages:
 * [`Scala`](https://www.scala-lang.org/) - combines object-oriented and functional programming in one concise, high-level language
 * [`Smalltalk`](http://www.smalltalk.org/) - The "original" OOP language
 * [`TypeScript`](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
-
-### Coursework related
-
-+ `Coursework`
-
-## Consolidation
-
-* `revision`
