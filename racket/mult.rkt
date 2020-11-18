@@ -13,18 +13,18 @@
 (define (my-mult x y)
   (cond [(= x 0) 0]
         [(= x 1) y]
-        [#t (+ y (my-mult (- x 1) y))]))
+        [else (+ y (my-mult (- x 1) y))]))
 
 ;(define (my-mult x y-thunk)
 ;  (cond [(= x 0) 0]
 ;        [(= x 1) (y-thunk)]
-;        [#t (+ (y-thunk) (my-mult (- x 1) y-thunk))]))
+;        [else (+ (y-thunk) (my-mult (- x 1) y-thunk))]))
 ;
 ;(my-mult e1 (let ([x (my-delay (lambda () e2))]) (lambda () (my-force x))))
 ;
 ;(define (my-mult x y-promise)
 ;  (cond [(= x 0) 0]
 ;        [(= x 1) (my-force y-promise)]
-;        [#t (+ (my-force y-promise) (my-mult (- x 1) y-promise))]))
+;        [else (+ (my-force y-promise) (my-mult (- x 1) y-promise))]))
 
 ;(my-mult e1 (my-delay (lambda () e2)))
