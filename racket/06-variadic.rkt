@@ -21,4 +21,10 @@
 
 (sumsquare 3 4)
 
-
+(define (variadic f)(lambda x (f x)))
+;;;((lambda x (f x)) 1 2 3) => (f '(1 2 3))
+(define (singlelistarg f) (lambda (x) (apply f x)))
+;;; (apply f '(4 5 6)) => (f 4 5 6)
+(define sum (singlelistarg +))
+(define var-rev (variadic reverse))
+;;; (var-rev 1 2 3 4) => (4 3 2 1)
