@@ -1,6 +1,4 @@
-package tail
-
-fun append(s: String, c: Char): String = "$s$c"
+package recursion
 
 fun toStringTail(list: List<Char>): String {
     tailrec fun toString(list: List<Char>, s: String): String =

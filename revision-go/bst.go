@@ -39,7 +39,7 @@ func NewNode(data int) *Node {
 }
 
 func (n *Node) Process() {
-	time.Sleep(2 * time.Second) // doing some time consuming things
+	//time.Sleep(2 * time.Second) // doing some time consuming things
 	fmt.Print(n.Data, " ")
 }
 

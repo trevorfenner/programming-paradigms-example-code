@@ -17,3 +17,9 @@ fun toStringalt(list: List<Char>): String =
         ""
     else
         prepend(list[0], toStringalt(list.subList(1, list.size)))
+
+fun main(){
+    println(prepend('S',"tring"))
+    println(toString(listOf('s','t','r','i','n','g')))
+    println(toStringalt(listOf('s','t','r','i','n','g')))
+}

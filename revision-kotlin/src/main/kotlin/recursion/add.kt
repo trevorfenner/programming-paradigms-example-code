@@ -16,3 +16,8 @@ fun add(a: Int, b: Int): Int {
 }
 
 tailrec fun addalt(x: Int, y: Int): Int = if (y == 0) x else add(inc(x), dec(y))
+
+fun main(){
+    println(add(3,4))
+    println(addalt(3,4))
+}
