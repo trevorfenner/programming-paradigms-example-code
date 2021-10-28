@@ -5,7 +5,7 @@
       '()
       (append (reverse (cdr x)) (list  (car x)))))
 
-(define (reverseTR x)  (rev x '()))
+(define (reverseTR x)  (rev-help x '()))
 
 (define (rev-help x res)
   (if (null? x)
