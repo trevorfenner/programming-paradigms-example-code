@@ -34,9 +34,9 @@
 
 ;; return a new	list that consists of all elements of s	for which f is true
 (define (my-filter f s)
-  (cond ((null? s) '())
-        ((f (car s)) (cons (car s) (my-filter f (cdr s))))
-        (else (my-filter f (cdr s)))))
+  (cond [(null? s) '()]
+        [(f (car s)) (cons (car s) (my-filter f (cdr s)))]
+        [else (my-filter f (cdr s))]))
         
 ;;;Deep Recursion
 
@@ -62,7 +62,7 @@
 (define (flatten x)
   (if (null? x)
       '()
-    (append (car x) (flatten (cdr x)))))
+      (append (car x) (flatten (cdr x)))))
         
 (define (deepflatten x)
   (cond [(null? x)'()]
@@ -75,20 +75,18 @@
 
 (define (count-leaves tree) (length (deepflatten tree)))
 
+;;;non-tail-recursive acumulation
 (define (accumulate op initial sequence) ;same as foldr
   (if (null? sequence)
       initial
       (op (car sequence)
           (accumulate op initial (cdr sequence)))))
           
-;;;foldl is tail-recursive
-(define (accumulateL  op initial sequence) ;same as foldl
-  (accLeft op sequence initial))
-
-(define (accLeft op sequence result)
+;;;tail-recursive acumulation
+(define (accumLeft op result sequence) ;same as foldl
   (if (null? sequence)
       result
-      (accLeft op (cdr sequence) (op (car sequence) result))))
+      (accumLeft op (op (car sequence) result)) (cdr sequence)))
 
 (define (map proc sequence)
   (accumulate 
