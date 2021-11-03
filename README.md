@@ -1,6 +1,6 @@
-# Programming Paradigms 
+# Programming Paradigms Code Repository
 
-# Code Examples for 2021-22
+### Examples for 2021-22
 
 You should "`pull`" this repository **often**; at least once a week.
 
@@ -22,3 +22,5 @@ You should "`pull`" this repository **often**; at least once a week.
 * [`Scala`](https://www.scala-lang.org/) - combines object-oriented and functional programming in one concise, high-level language
 * [`Smalltalk`](http://www.smalltalk.org/) - The "original" OOP language
 * [`TypeScript`](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
+
+Folders that begin `banas-???` contain the code from the respective video.
