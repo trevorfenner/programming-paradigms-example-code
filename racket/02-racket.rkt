@@ -37,6 +37,8 @@
   (cond ((null? s) '())
         ((f (car s)) (cons (car s) (my-filter f (cdr s))))
         (else (my-filter f (cdr s)))))
+        
+;;;Deep Recursion        
 
 (define (reverse list)
   (if (null? list) empty
@@ -47,6 +49,9 @@
         [(not (pair? lst)) lst]
         [else (append (deep-reverse (cdr lst)) 
                       (list (deep-reverse (car lst))))]))
+                      
+;(reverse '(a b (c d) e f))
+;(deep-reverse '(a b (c d) e f))                      
               
 (define (flatten x)
   (if (null? x)
@@ -59,8 +64,8 @@
         [else (append (deepflatten (car x)) 
                       (deepflatten (cdr x)))]))
 
-(deepflatten '(((((1 3)6)8)9)(a 10 b)))
-(deepflatten '((a b) (c d)))
+;;(deepflatten '(((((1 3)6)8)9)(a 10 b)))
+;;(deepflatten '((a b) (c d)))
 
 (define (count-leaves tree) (length (deepflatten tree)))
 
