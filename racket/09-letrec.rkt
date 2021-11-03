@@ -35,6 +35,8 @@
 
 ;; now this works
 
+;;; NOTE: LOCAL "define"s are converted to letrecs
+
 ;; The obvious way to implement letrec is to use side effects -- create the variables
 ;; to be bound (e.g. fact4), bind them temporarily to the value 'undefined', and then 
 ;; set the variable to the correct value of the expression.  And this is what Racket 

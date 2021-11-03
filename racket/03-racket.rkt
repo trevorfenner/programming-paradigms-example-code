@@ -37,6 +37,14 @@
   (cond ((null? s) '())
         ((f (car s)) (cons (car s) (my-filter f (cdr s))))
         (else (my-filter f (cdr s)))))
+        
+;;;Deep Recursion
+
+(define (sumall x)
+  (cond [(null? x) 0]
+        [(pair? x) (+ (sumall (car x))
+                      (sumall (cdr x)))]
+        [else x]))
 
 (define (reverse list)
   (if (null? list) empty
@@ -45,8 +53,12 @@
 (define (deep-reverse lst)
   (cond [(null? lst) empty]
         [(not (pair? lst)) lst]
-        [else (append (deep-reverse (cdr lst)) (list (deep-reverse (car lst))))]))
-        
+        [else (append (deep-reverse (cdr lst)) 
+                      (list (deep-reverse (car lst))))]))
+                      
+;(reverse '(a b (c d) e f))
+;(deep-reverse '(a b (c d) e f))                      
+              
 (define (flatten x)
   (if (null? x)
       '()
@@ -58,21 +70,32 @@
         [else (append (deepflatten (car x)) 
                       (deepflatten (cdr x)))]))
 
-(deepflatten '(((((1 3)6)8)9)(a 10 b)))
-(deepflatten '((a b) (c d)))
+;;(deepflatten '(((((1 3)6)8)9)(a 10 b)))
+;;(deepflatten '((a b) (c d)))
 
 (define (count-leaves tree) (length (deepflatten tree)))
 
-(define (accumulate op initial sequence)
+(define (accumulate op initial sequence) ;same as foldr
   (if (null? sequence)
       initial
       (op (car sequence)
           (accumulate op initial (cdr sequence)))))
+          
+;;;foldl is tail-recursive
+(define (accumulateL  op initial sequence) ;same as foldl
+  (accLeft op sequence initial))
+
+(define (accLeft op sequence result)
+  (if (null? sequence)
+      result
+      (accLeft op (cdr sequence) (op (car sequence) result))))
 
 (define (map proc sequence)
   (accumulate 
-   (lambda (x y) (cons (proc x) y)) 
+   (lambda (x y) (cons (proc x) y))    
    empty sequence))
+   
+;;; define filter using accumulate   
 
 (define (append s1 s2)
   (accumulate cons s2 s1))

@@ -21,13 +21,7 @@
 ;(length (reverseTR (revnums 30000)))
 ;(length (reverse (revnums 30000)))
 
-(define (dreverse x)
-  (cond ((null? x) '())
-        ((not (pair? x)) x)
-        (else (append (dreverse (cdr x))
-                      (list (dreverse(car x)))))))
 
 ;(reverse '(a b c d e f))
 ;(reverse '(a b (c d) e f))
-;(reverseTR '(a b (c d) e f))
-;(dreverse '(a b (c d) e f))
+
