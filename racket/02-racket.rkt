@@ -46,7 +46,7 @@
   (cond [(null? lst) empty]
         [(not (pair? lst)) lst]
         [else (append (deep-reverse (cdr lst)) 
-              (list (deep-reverse (car lst))))]))
+                      (list (deep-reverse (car lst))))]))
               
 (define (flatten x)
   (if (null? x)
