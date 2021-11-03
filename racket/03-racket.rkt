@@ -38,7 +38,13 @@
         ((f (car s)) (cons (car s) (my-filter f (cdr s))))
         (else (my-filter f (cdr s)))))
         
-;;;Deep Recursion        
+;;;Deep Recursion
+
+(define (sumall x)
+  (cond [(null? x) 0]
+        [(pair? x) (+ (sumall (car x))
+                      (sumall (cdr x)))]
+        [else x]))
 
 (define (reverse list)
   (if (null? list) empty
