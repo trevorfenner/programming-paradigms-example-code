@@ -23,4 +23,6 @@ You should "`pull`" this repository **often**; at least once a week.
 * [`Smalltalk`](http://www.smalltalk.org/) - The "original" OOP language
 * [`TypeScript`](https://www.typescriptlang.org/) - a typed superset of JavaScript that compiles to plain JavaScript
 
++ `learn-x-in-y-minutes` — the code from these various courses
+
 Folders that begin `banas-???` contain the code from the respective video.
