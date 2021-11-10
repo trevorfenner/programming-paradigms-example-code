@@ -6,6 +6,20 @@
 (set-mcar! mpr "cat")
 
 ;;; variadic functions
+(define (add x y) (+ x y))
+(define sum (lambda nums
+              (if (null? nums)
+                  0
+                  (add (car nums) (apply sum (cdr nums))))))
+
+(define testvar (lambda args (cdr args)))
+
+(define snew (lambda nums
+              (if (null? nums)
+                  0
+                  (snew (cdr nums)))))
+
+(define (mult lst) (apply * lst))
 
 (define last (lambda x (final x)))
 
