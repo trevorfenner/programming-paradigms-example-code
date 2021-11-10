@@ -1,6 +1,4 @@
 #lang racket
-(define (dub x) (* 2 x))
-(define (thrice f) (lambda (x) (f (f (f x)))))
 (print "start")
 (newline)
 ;;(eval '(cons 5 6))
