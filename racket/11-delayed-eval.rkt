@@ -25,7 +25,7 @@
 ;; the arguments will always be evaluated, whether we need them or not
 (define (test1 a b c)
   (if a
-      (+ b b c)
+      (+ b b b c)
       c))
 
 ;; (test1 #t (longwait 10) (longwait 20))
