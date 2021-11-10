@@ -1,4 +1,5 @@
 #lang racket
+;;;some alternative definitions to thoe in the slides
 ;;;car, cdr, etc. for streams
 (define (scar s) (car (s)))
 (define (scdr s) (cdr (s)))
