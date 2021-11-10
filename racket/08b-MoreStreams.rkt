@@ -28,6 +28,13 @@
   (lambda () (cons 1 (lambda ()
                        (cons 1 (s+ fibs (scdr fibs)))))))
 
+(define (integers-starting-from n)
+  (lambda () (cons n (integers-starting-from (+ n 1)))))
+
+(define integers (integers-starting-from 1))
+
+(define altintegers (lambda() (cons 1 (s+ ones altintegers))))
+
 
 
 
